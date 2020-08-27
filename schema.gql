@@ -1,0 +1,26 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Animal {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  animal(id: String!): Animal!
+  animals: [Animal!]!
+}
+
+type Mutation {
+  addAnimal(newAnimalData: NewAnimalInput!): Animal!
+  removeAnimal(id: String!): Boolean!
+}
+
+input NewAnimalInput {
+  name: String!
+}
+
+type Subscription {
+  animalAdded: Animal!
+}
