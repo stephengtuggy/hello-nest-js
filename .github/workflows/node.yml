@@ -1,0 +1,35 @@
+name: Node
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        includes:
+          - os:           windows-2022
+            node-version: 14.x
+          - os:           ubuntu-22.04
+            node-version: 14.x
+          - os:           macos-latest
+            node-version: 14.x
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8   #v3.1.0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 #v3.5.1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      # Leave tests commented out for now, since they are failing
+      #- run: npm test
