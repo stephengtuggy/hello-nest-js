@@ -18,5 +18,5 @@ updates:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
     ignore:
-      dependency-name: "*"
-      update-types: ["version-update:semver-major"]
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
