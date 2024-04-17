@@ -3,6 +3,6 @@ import { AnimalsResolver } from './animals.resolver';
 import { AnimalsService } from './animals.service';
 
 @Module({
-  providers: [AnimalsResolver, AnimalsService]
+  providers: [AnimalsResolver, AnimalsService],
 })
 export class AnimalsModule {}
