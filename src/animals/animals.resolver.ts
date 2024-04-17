@@ -1,6 +1,6 @@
 import { NotFoundException } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
-import { PubSub } from 'apollo-server-express';
+import { PubSub } from 'graphql-subscriptions';
 import { Animal } from './models/animal.model';
 import { AnimalsService } from './animals.service';
 import { NewAnimalInput } from './dto/new-animal.input';
