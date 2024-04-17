@@ -3,7 +3,7 @@ import { MaxLength } from 'class-validator';
 
 @InputType()
 export class NewAnimalInput {
-    @Field()
-    @MaxLength(255)
-    name: string;
+  @Field()
+  @MaxLength(255)
+  name: string;
 }
