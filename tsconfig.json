@@ -11,6 +11,12 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+  },
+  "files": [
+    "src/main.ts",
+  ],
+  "include": [
+    ".eslintrc.js",
+  ],
 }
