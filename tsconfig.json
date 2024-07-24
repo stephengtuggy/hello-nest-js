@@ -10,7 +10,12 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true
-  }
+    "incremental": true
+  },
+  "files": [
+    "src/main.ts",
+  ],
+  "include": [
+    ".eslintrc.js",
+  ],
 }
