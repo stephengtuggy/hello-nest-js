@@ -41,6 +41,6 @@ export class AnimalsResolver {
 
   @Subscription((returns) => Animal)
   animalAdded() {
-    return pubSub.asyncIterator('animalAdded');
+    return pubSub.asyncIterableIterator('animalAdded');
   }
 }
