@@ -30,7 +30,7 @@ export class AnimalsResolver {
     @Args('newAnimalData') newAnimalData: NewAnimalInput,
   ): Promise<Animal> {
     const animal = await this.animalsService.create(newAnimalData);
-    pubSub.publish('animalAdded', { animalAdded: animal });
+    await pubSub.publish('animalAdded', { animalAdded: animal });
     return animal;
   }
 
