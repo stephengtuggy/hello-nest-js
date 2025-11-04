@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_FILTER } from '@nestjs/core';
 import { validate } from './config/env.validation';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
@@ -8,6 +9,7 @@ import { AnimalsModule } from './animals/animals.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { FoodsModule } from './foods/foods.module';
+import { CatchEverythingFilter } from './catch-everything/catch-everything.filter';
 
 @Module({
   imports: [
@@ -26,6 +28,12 @@ import { FoodsModule } from './foods/foods.module';
     FoodsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: CatchEverythingFilter,
+    },
+  ],
 })
 export class AppModule {}
