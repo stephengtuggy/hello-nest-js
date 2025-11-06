@@ -1,9 +1,12 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
+import { MyLogger } from '../my-logger.service';
 
 @Catch()
 export class CatchEverythingFilter implements ExceptionFilter {
-  constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
+  constructor(private readonly httpAdapterHost: HttpAdapterHost, private myLogger: MyLogger) {
+    this.myLogger.setContext('CatchEverythingFilter');
+  }
 
   catch(exception: unknown, host: ArgumentsHost): void {
     const { httpAdapter } = this.httpAdapterHost;
@@ -25,6 +28,8 @@ export class CatchEverythingFilter implements ExceptionFilter {
       timestamp: new Date().toISOString(),
       path: httpAdapter.getRequestUrl(ctx.getRequest()),
     }
+
+    this.myLogger.error(message);
 
     httpAdapter.reply(ctx.getResponse(), responseBody, httpStatus);
   }

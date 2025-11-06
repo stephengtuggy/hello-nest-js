@@ -7,7 +7,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AnimalsModule } from './animals/animals.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { FoodsModule } from './foods/foods.module';
 import { CatchEverythingFilter } from './catch-everything/catch-everything.filter';
 
@@ -20,8 +19,10 @@ import { CatchEverythingFilter } from './catch-everything/catch-everything.filte
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: false,
-      plugins: [ApolloServerPluginLandingPageLocalDefault()],
-      installSubscriptionHandlers: true,
+      graphiql: true,
+      subscriptions: {
+        'graphql-ws': true,
+      },
       autoSchemaFile: 'schema.gql',
     }),
     AnimalsModule,
