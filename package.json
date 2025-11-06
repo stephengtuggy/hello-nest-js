@@ -41,7 +41,7 @@
     "graphql-query-complexity": "1.1.0",
     "graphql-subscriptions": "3.0.0",
     "reflect-metadata": "0.2.2",
-    "rimraf": "6.0.1",
+    "rimraf": "^6.1.0",
     "rxjs": "7.8.2",
     "ts-morph": "^21.0.1"
   },
