@@ -2,7 +2,7 @@ import { ObjectType, Field, ID } from '@nestjs/graphql';
 
 @ObjectType()
 export class Food {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field()
