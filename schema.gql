@@ -7,20 +7,50 @@ type Animal {
   name: String!
 }
 
+type Food {
+  id: ID!
+  name: String!
+}
+
 type Query {
-  animal(id: String!): Animal!
+  animal(id: ID!): Animal!
   animals: [Animal!]!
+  foods: [Food!]!
+  food(id: ID!): Food!
 }
 
 type Mutation {
   addAnimal(newAnimalData: NewAnimalInput!): Animal!
-  removeAnimal(id: String!): Boolean!
+  updateAnimal(updateAnimalInput: UpdateAnimalInput!): Animal!
+  removeAnimal(id: ID!): Boolean!
+  createFood(createFoodInput: CreateFoodInput!): Food!
+  updateFood(updateFoodInput: UpdateFoodInput!): Food!
+  removeFood(id: ID!): Food!
 }
 
 input NewAnimalInput {
   name: String!
 }
 
+input UpdateAnimalInput {
+  name: String
+  id: ID!
+}
+
+input CreateFoodInput {
+  name: String!
+}
+
+input UpdateFoodInput {
+  name: String
+  id: ID!
+}
+
 type Subscription {
   animalAdded: Animal!
+  animalUpdated: Animal!
+  animalRemoved: Animal!
+  foodAdded: Food!
+  foodUpdated: Food!
+  foodRemoved: Food!
 }

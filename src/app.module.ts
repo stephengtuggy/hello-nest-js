@@ -1,23 +1,42 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { APP_FILTER } from '@nestjs/core';
+import { validate } from './config/env.validation';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AnimalsModule } from './animals/animals.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+import { FoodsModule } from './foods/foods.module';
+import { CatchEverythingFilter } from './catch-everything/catch-everything.filter';
+import { LoggerModule } from './logger.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      validate,
+      cache: true,
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: false,
-      plugins: [ApolloServerPluginLandingPageLocalDefault()],
-      installSubscriptionHandlers: true,
+      graphiql: true,
+      subscriptions: {
+        'graphql-ws': true,
+      },
       autoSchemaFile: 'schema.gql',
     }),
     AnimalsModule,
+    FoodsModule,
+    LoggerModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: CatchEverythingFilter,
+    },
+  ],
 })
 export class AppModule {}
