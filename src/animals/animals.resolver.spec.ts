@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AnimalsResolver } from './animals.resolver';
 import { AnimalsService } from './animals.service';
-import { AppModule } from '../app.module';
 import { LoggerModule } from '../logger.module';
 
 describe('AnimalsResolver', () => {

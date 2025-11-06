@@ -1,6 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FoodsService } from './foods.service';
-import { AppModule } from '../app.module';
 import { LoggerModule } from '../logger.module';
 
 describe('FoodsService', () => {

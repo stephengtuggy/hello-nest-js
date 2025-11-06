@@ -1,6 +1,5 @@
 import { CatchEverythingFilter } from './catch-everything.filter';
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppModule } from '../app.module';
 import { LoggerModule } from '../logger.module';
 
 describe('CatchEverythingFilter', () => {
