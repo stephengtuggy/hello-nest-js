@@ -14,8 +14,8 @@ export async function bootstrap() {
     cors: true,
     bufferLogs: true,
   });
-  app.useLogger(app.get(MyLogger))
-  const myLogger = app.get(MyLogger);
+  app.useLogger(await app.resolve(MyLogger))
+  const myLogger = await app.resolve(MyLogger);
 
   const configService =
     app.get<ConfigService<EnvironmentVariables, true>>(ConfigService);

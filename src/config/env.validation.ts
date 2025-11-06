@@ -19,25 +19,25 @@ export class EnvironmentVariables {
   @IsString()
   APP_HOST: string;
 
-  @IsString()
-  CORS_ORIGIN: string;
-
-  @IsString()
-  DB_HOST: string;
-
-  @IsNumber()
-  @Min(0)
-  @Max(65535)
-  DB_PORT: number;
-
-  @IsString()
-  DB_USERNAME: string;
-
-  @IsString()
-  DB_PASSWORD: string;
-
-  @IsString()
-  DB_NAME: string;
+  // @IsString()
+  // CORS_ORIGIN: string;
+  //
+  // @IsString()
+  // DB_HOST: string;
+  //
+  // @IsNumber()
+  // @Min(0)
+  // @Max(65535)
+  // DB_PORT: number;
+  //
+  // @IsString()
+  // DB_USERNAME: string;
+  //
+  // @IsString()
+  // DB_PASSWORD: string;
+  //
+  // @IsString()
+  // DB_NAME: string;
 }
 
 export function validate(config: Record<string, unknown>) {

@@ -9,6 +9,7 @@ import { AnimalsModule } from './animals/animals.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { FoodsModule } from './foods/foods.module';
 import { CatchEverythingFilter } from './catch-everything/catch-everything.filter';
+import { LoggerModule } from './logger.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { CatchEverythingFilter } from './catch-everything/catch-everything.filte
     }),
     AnimalsModule,
     FoodsModule,
+    LoggerModule,
   ],
   controllers: [AppController],
   providers: [
