@@ -31,7 +31,7 @@
     "@nestjs/common": "11.1.8",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "11.1.8",
-    "@nestjs/graphql": "13.1.0",
+    "@nestjs/graphql": "^13.2.0",
     "@nestjs/platform-express": "11.1.8",
     "body-parse": "^0.1.0",
     "class-transformer": "0.5.1",
