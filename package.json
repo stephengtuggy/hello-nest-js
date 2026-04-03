@@ -46,8 +46,8 @@
     "ts-morph": "^25.0.1"
   },
   "devDependencies": {
-    "@nestjs/cli": "11.0.16",
-    "@nestjs/schematics": "11.0.9",
+    "@nestjs/cli": "11.0.17",
+    "@nestjs/schematics": "11.0.10",
     "@nestjs/testing": "11.1.17",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
