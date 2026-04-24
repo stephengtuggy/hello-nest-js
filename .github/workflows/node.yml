@@ -17,8 +17,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ windows-2022, windows-2025, ubuntu-22.04, ubuntu-24.04, macos-14, macos-15 ]
+        os: [ windows-2022, windows-2025, windows-2025-vs2026, ubuntu-22.04, ubuntu-24.04, macos-14, macos-15 ]
         node-version: [ 22.x, 24.x ]
+        exclude:
+          - os: windows-2025-vs2026
+            node-version: 22.x
 
     steps:
       - name: checkout
